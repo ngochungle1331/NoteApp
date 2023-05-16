@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">NotesApp</string>
+    <string name="note_splash_screen">Note splash screen</string>
+    <string name="author_name">By\n Ngoc Hung Le</string>
+    <string name="app_name_splash">Note App</string>
+    <string name="app_description_splash">Note your important tasks</string>
+    <string name="floating_action_button_add_note">Add new note</string>
+    <string name="note_title">Title</string>
+    <string name="note_subtitle">SubTitle</string>
+    <string name="note_priority">Priority</string>
+    <string name="green_priority">green priority</string>
+    <string name="yellow_priority">yellow priority</string>
+    <string name="red_priority">red priority</string>
+    <string name="note_body">Note</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="card_priority">card_priority</string>
+    <string name="card_note">Note 1</string>
+    <string name="card_note_body">Note body</string>
+    <string name="delete_bar">Delete Bar</string>
+    <string name="note_delete_question">Are you sure you want to delete this note?</string>
+</resources>
