@@ -5,10 +5,12 @@ import android.text.format.DateFormat
 import android.util.Log
 import android.view.*
 import android.widget.TextView
-import androidx.fragment.app.Fragment
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.notesapp.R
 import com.example.notesapp.data.source.local.Note
@@ -19,16 +21,24 @@ import java.util.*
 
 
 class UpdateNoteFragment : Fragment() {
-    val notes by navArgs<UpdateNoteFragmentArgs>()
-    lateinit var binding: FragmentUpdateNoteBinding
-    var priority = "1"
-    val viewModel: NoteViewModel by viewModels()
+    private val notes by navArgs<UpdateNoteFragmentArgs>()
+    private lateinit var binding: FragmentUpdateNoteBinding
+    private var priority = "1"
+    private val viewModel: NoteViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentUpdateNoteBinding.inflate(layoutInflater, container, false)
+        // This callback will only be called when MyFragment is at least Started.
+        val callback: OnBackPressedCallback =
+            object : OnBackPressedCallback(true /* enabled by default */) {
+                override fun handleOnBackPressed() {
+                    // Handle the back button event
+                }
+            }
+        requireActivity().onBackPressedDispatcher.addCallback(requireActivity(), callback)
         setHasOptionsMenu(true)
 
         binding.etNoteTitle.setText(notes.data.title)
@@ -118,13 +128,14 @@ class UpdateNoteFragment : Fragment() {
             tvYes?.setOnClickListener {
                 viewModel.deleteNote(notes.data.id!!)
                 bottomSheetDialog.dismiss()
-                Navigation.findNavController(it!!)
-                    .navigate(R.id.action_updateNoteFragment_to_homeFragment)
+                findNavController().popBackStack()
             }
             tvNo?.setOnClickListener {
                 bottomSheetDialog.dismiss()
             }
             bottomSheetDialog.show()
+        } else if (item.itemId == android.R.id.home) {
+            findNavController().popBackStack()
         }
         return super.onOptionsItemSelected(item)
 

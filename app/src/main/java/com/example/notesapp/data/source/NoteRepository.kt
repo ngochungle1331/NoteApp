@@ -6,21 +6,17 @@ import com.example.notesapp.data.source.local.NoteDao
 
 
 class NoteRepository(private val noteDao: NoteDao) {
-    fun getAllNotes(): LiveData<List<Note>> {
-        return noteDao.getAllNotes()
-    }
+    fun getAllNotes(): LiveData<List<Note>> = noteDao.getAllNotes()
 
-    fun getHighNotes(): LiveData<List<Note>> {
-        return noteDao.getHighNotes()
-    }
 
-    fun getMediumNotes(): LiveData<List<Note>> {
-        return noteDao.getMediumNotes()
-    }
+    fun getHighNotes(): LiveData<List<Note>> = noteDao.getHighNotes()
 
-    fun getLowNotes(): LiveData<List<Note>> {
-        return noteDao.getLowNotes()
-    }
+
+    fun getMediumNotes(): LiveData<List<Note>> = noteDao.getMediumNotes()
+
+
+    fun getLowNotes(): LiveData<List<Note>> = noteDao.getLowNotes()
+
 
     fun insertNote(note: Note) {
         noteDao.insertNote(note)

@@ -8,7 +8,7 @@ import com.example.notesapp.data.source.NoteRepository
 import com.example.notesapp.data.source.local.NoteDatabase
 
 class NoteViewModel(application: Application) : AndroidViewModel(application) {
-    var noteRepository: NoteRepository
+    private var noteRepository: NoteRepository
 
     init {
         val noteDao = NoteDatabase.getDatabaseInstance(application).noteDao()

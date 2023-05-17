@@ -113,7 +113,7 @@
         android:id="@+id/fbCreateNote"
         android:layout_width="@dimen/width_70"
         android:layout_height="@dimen/height_60"
-        android:layout_marginEnd="@dimen/margin_end_25"
+        android:layout_marginEnd="@dimen/margin_end_35"
         android:layout_marginBottom="@dimen/margin_bottom_45"
         android:backgroundTint="@color/red"
         android:contentDescription="@string/floating_action_button_add_note"

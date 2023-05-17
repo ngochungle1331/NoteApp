@@ -2,23 +2,29 @@ package com.example.notesapp.ui.create
 
 import android.os.Bundle
 import android.text.format.DateFormat
-import android.view.*
-import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
+import androidx.annotation.Nullable
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import com.example.notesapp.R
 import com.example.notesapp.data.source.local.Note
 import com.example.notesapp.databinding.FragmentCreateNoteBinding
 import com.example.notesapp.ui.note.NoteViewModel
-import java.util.Date
+import java.util.*
 
 
 class CreateNoteFragment : Fragment() {
 
     private lateinit var binding: FragmentCreateNoteBinding
     var priority = "1"
-    val viewModel: NoteViewModel by viewModels()
+    private val viewModel: NoteViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -69,6 +75,13 @@ class CreateNoteFragment : Fragment() {
         Navigation.findNavController(it!!).navigate(R.id.action_createNoteFragment_to_homeFragment2)
     }
 
+    @Deprecated("Deprecated in Java")
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            findNavController().popBackStack()
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
 
 }

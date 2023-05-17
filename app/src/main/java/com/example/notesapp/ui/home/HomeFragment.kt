@@ -19,8 +19,8 @@ class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private val viewModel: NoteViewModel by viewModels()
-    var myNoteList = arrayListOf<Note>()
-    lateinit var adapter: NoteAdapter
+    private var myNoteList = arrayListOf<Note>()
+    private lateinit var adapter: NoteAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
