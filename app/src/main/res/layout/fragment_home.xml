@@ -4,15 +4,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginEnd="10dp"
     tools:context=".ui.home.HomeFragment">
+
+    <ImageView
+        android:id="@+id/ivFilter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/note_filter"
+        android:padding="10dp"
+        android:src="@drawable/ic_filter"
+        app:layout_constraintBottom_toTopOf="@+id/rvNote"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvFilterHigh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:background="@drawable/custom_filter_button"
+        android:backgroundTint="@color/red"
+        android:fontFamily="@font/product_sans_regular"
+        android:padding="10dp"
+        android:text="@string/priority_high"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/rvNote"
+        app:layout_constraintEnd_toStartOf="@+id/tvFilterMedium"
+        app:layout_constraintStart_toEndOf="@+id/ivFilter" />
+
+    <TextView
+        android:id="@+id/tvFilterMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/custom_text_background"
+        android:backgroundTint="@color/yellow"
+        android:fontFamily="@font/product_sans_regular"
+        android:padding="10dp"
+        android:text="@string/priority_medium"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/rvNote"
+        app:layout_constraintEnd_toStartOf="@+id/tvFilterLow"
+        app:layout_constraintStart_toEndOf="@+id/tvFilterHigh" />
+
+    <TextView
+        android:id="@+id/tvFilterLow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/custom_text_background"
+        android:backgroundTint="@color/green"
+        android:fontFamily="@font/product_sans_regular"
+        android:padding="10dp"
+        android:textAlignment="center"
+        android:text="@string/priority_low"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/rvNote"
+        app:layout_constraintStart_toEndOf="@+id/tvFilterMedium" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvNote"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/ivFilter" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fbAddNote"

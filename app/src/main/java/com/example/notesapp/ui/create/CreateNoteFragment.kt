@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import com.example.notesapp.R
 import com.example.notesapp.data.source.local.Note
 import com.example.notesapp.databinding.FragmentCreateNoteBinding
@@ -21,17 +22,11 @@ class CreateNoteFragment : Fragment() {
     var priority = "1"
     val viewModel: NoteViewModel by viewModels()
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentCreateNoteBinding.inflate(layoutInflater, container, false)
-
-
 
         binding.run {
             ivGreenPriority.setOnClickListener {
@@ -55,13 +50,13 @@ class CreateNoteFragment : Fragment() {
         }
 
         binding.fbCreateNote.setOnClickListener {
-            createNote()
+            createNote(it)
         }
 
         return binding.root
     }
 
-    private fun createNote() {
+    private fun createNote(it: View?) {
         val title = binding.etNoteTitle.text.toString()
         val subTitle = binding.etNoteSubTitle.text.toString()
         val body = binding.etNoteBody.text.toString()
@@ -70,8 +65,9 @@ class CreateNoteFragment : Fragment() {
         val note = Note(null, title, subTitle, body, noteDate, priority)
         viewModel.addNote(note)
 
-        Toast.makeText(requireContext(), "success", Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), "Created successfully", Toast.LENGTH_SHORT).show()
 
+        Navigation.findNavController(it!!).navigate(R.id.action_createNoteFragment_to_homeFragment2)
     }
 
 

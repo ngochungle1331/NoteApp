@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
-    android:padding="10dp"
-    app:cardCornerRadius="20dp">
+    app:cardCornerRadius="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,6 +16,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/product_sans_regular"
             android:maxLines="1"
+            android:padding="5dp"
             android:text="@string/card_note"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -26,20 +26,28 @@
             android:id="@+id/ivPriority"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:src="@drawable/custom_yellow_shape"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="10dp"
-            android:contentDescription="@string/card_priority" />
+            android:contentDescription="@string/card_priority"
+            android:src="@drawable/custom_yellow_shape"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvNoteBody"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="5dp"
             android:text="@string/card_note_body"
             app:layout_constraintTop_toBottomOf="@+id/tvNoteTitle" />
 
+        <TextView
+            android:id="@+id/tvNoteDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/note_date"
+            app:layout_constraintTop_toBottomOf="@+id/tvNoteBody" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

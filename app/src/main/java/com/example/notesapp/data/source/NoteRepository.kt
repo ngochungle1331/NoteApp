@@ -1,15 +1,25 @@
 package com.example.notesapp.data.source
 
-import android.app.Application
 import androidx.lifecycle.LiveData
 import com.example.notesapp.data.source.local.Note
 import com.example.notesapp.data.source.local.NoteDao
-import com.example.notesapp.data.source.local.NoteDatabase
 
 
-class Repository(private val noteDao: NoteDao) {
+class NoteRepository(private val noteDao: NoteDao) {
     fun getAllNotes(): LiveData<List<Note>> {
         return noteDao.getAllNotes()
+    }
+
+    fun getHighNotes(): LiveData<List<Note>> {
+        return noteDao.getHighNotes()
+    }
+
+    fun getMediumNotes(): LiveData<List<Note>> {
+        return noteDao.getMediumNotes()
+    }
+
+    fun getLowNotes(): LiveData<List<Note>> {
+        return noteDao.getLowNotes()
     }
 
     fun insertNote(note: Note) {
