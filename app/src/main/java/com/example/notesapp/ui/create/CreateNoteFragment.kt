@@ -2,10 +2,8 @@ package com.example.notesapp.ui.create
 
 import android.os.Bundle
 import android.text.format.DateFormat
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
@@ -27,6 +25,7 @@ class CreateNoteFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentCreateNoteBinding.inflate(layoutInflater, container, false)
+        setHasOptionsMenu(true)
 
         binding.run {
             ivGreenPriority.setOnClickListener {
@@ -69,6 +68,7 @@ class CreateNoteFragment : Fragment() {
 
         Navigation.findNavController(it!!).navigate(R.id.action_createNoteFragment_to_homeFragment2)
     }
+
 
 
 }

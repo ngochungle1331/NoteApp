@@ -1,4 +1,4 @@
-package com.example.notesapp.ui.Adapters
+package com.example.notesapp.ui.adapters
 
 import android.content.Context
 import android.view.LayoutInflater

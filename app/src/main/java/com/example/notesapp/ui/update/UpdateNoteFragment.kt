@@ -3,10 +3,9 @@ package com.example.notesapp.ui.update
 import android.os.Bundle
 import android.text.format.DateFormat
 import android.util.Log
+import android.view.*
+import android.widget.TextView
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
@@ -15,6 +14,7 @@ import com.example.notesapp.R
 import com.example.notesapp.data.source.local.Note
 import com.example.notesapp.databinding.FragmentUpdateNoteBinding
 import com.example.notesapp.ui.note.NoteViewModel
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import java.util.*
 
 
@@ -29,6 +29,7 @@ class UpdateNoteFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentUpdateNoteBinding.inflate(layoutInflater, container, false)
+        setHasOptionsMenu(true)
 
         binding.etNoteTitle.setText(notes.data.title)
         binding.etNoteSubTitle.setText(notes.data.noteSubtitle)
@@ -80,8 +81,6 @@ class UpdateNoteFragment : Fragment() {
             }
         }
 
-
-
         return binding.root
     }
 
@@ -99,6 +98,37 @@ class UpdateNoteFragment : Fragment() {
         Log.e("update", "title: $title")
 
         Navigation.findNavController(it!!).navigate(R.id.action_updateNoteFragment_to_homeFragment)
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_delete, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.btnDelete) {
+            val bottomSheetDialog = BottomSheetDialog(requireContext())
+            bottomSheetDialog.setContentView(R.layout.dialog_delete)
+
+            val tvYes = bottomSheetDialog.findViewById<TextView>(R.id.btnYes)
+            val tvNo = bottomSheetDialog.findViewById<TextView>(R.id.btnNo)
+
+            tvYes?.setOnClickListener {
+                viewModel.deleteNote(notes.data.id!!)
+                bottomSheetDialog.dismiss()
+                Navigation.findNavController(it!!)
+                    .navigate(R.id.action_updateNoteFragment_to_homeFragment)
+            }
+            tvNo?.setOnClickListener {
+                bottomSheetDialog.dismiss()
+            }
+            bottomSheetDialog.show()
+        }
+        return super.onOptionsItemSelected(item)
+
+
     }
 
 

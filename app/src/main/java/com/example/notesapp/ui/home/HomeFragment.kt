@@ -10,7 +10,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.notesapp.R
 import com.example.notesapp.databinding.FragmentHomeBinding
-import com.example.notesapp.ui.Adapters.NoteAdapter
+import com.example.notesapp.ui.adapters.NoteAdapter
 import com.example.notesapp.ui.note.NoteViewModel
 
 
