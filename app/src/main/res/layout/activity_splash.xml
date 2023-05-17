@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/ivNoteSplash"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="@dimen/width_120"
+        android:layout_height="@dimen/height_120"
         android:contentDescription="@string/note_splash_screen"
         android:src="@drawable/note"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,32 +21,32 @@
         android:id="@+id/tvNoteSplash"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginTop="@dimen/margin_top_10"
+        android:layout_marginEnd="@dimen/margin_top_20"
         android:fontFamily="@font/product_sans_bold"
         android:gravity="center"
         android:text="@string/app_name_splash"
         android:textColor="@color/red"
-        android:textSize="32sp"
+        android:textSize="@dimen/text_size_32"
         app:layout_constraintTop_toBottomOf="@+id/ivNoteSplash" />
 
     <TextView
         android:id="@+id/tvAppDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="@dimen/margin_bottom_5"
         android:fontFamily="@font/product_sans_regular"
         android:gravity="center"
         android:text="@string/app_description_splash"
         android:textColor="@color/red"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_size_16"
         app:layout_constraintTop_toBottomOf="@+id/tvNoteSplash" />
 
     <ProgressBar
         android:id="@+id/progressBarSplash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/margin_top_20"
         android:theme="@style/ProgressBar"
         app:layout_constraintBottom_toTopOf="@+id/tvAuthorSplash"
         app:layout_constraintEnd_toEndOf="parent"
@@ -57,12 +57,12 @@
         android:id="@+id/tvAuthorSplash"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="@dimen/margin_bottom_5"
         android:fontFamily="@font/product_sans_regular"
         android:gravity="center"
         android:text="@string/author_name"
         android:textColor="@color/red"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_size_16"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

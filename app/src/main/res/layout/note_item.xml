@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    app:cardCornerRadius="10dp">
+    android:layout_margin="@dimen/margin_10"
+    app:cardCornerRadius="@dimen/corner_radius_10">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,18 +16,18 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/product_sans_regular"
             android:maxLines="1"
-            android:padding="5dp"
+            android:padding="@dimen/padding_5"
             android:text="@string/card_note"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_size_16"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/ivPriority"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
+            android:layout_width="@dimen/width_20"
+            android:layout_height="@dimen/height_20"
+            android:layout_marginTop="@dimen/margin_top_5"
+            android:layout_marginEnd="@dimen/margin_end_10"
             android:contentDescription="@string/card_priority"
             android:src="@drawable/custom_yellow_shape"
             app:layout_constraintEnd_toEndOf="parent"
@@ -37,7 +37,7 @@
             android:id="@+id/tvNoteBody"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp"
+            android:padding="@dimen/padding_5"
             android:text="@string/card_note_body"
             app:layout_constraintTop_toBottomOf="@+id/tvNoteTitle" />
 
@@ -45,7 +45,7 @@
             android:id="@+id/tvNoteDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp"
+            android:padding="@dimen/padding_5"
             android:text="@string/note_date"
             app:layout_constraintTop_toBottomOf="@+id/tvNoteBody" />
 

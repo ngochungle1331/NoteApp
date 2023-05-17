@@ -27,4 +27,8 @@
     <string name="dialog_no">No</string>
     <string name="dialog_yes">Yes</string>
     <string name="search_menu">Search</string>
+    <string name="fragment_home_name">Notes App</string>
+    <string name="fragment_create_note">Create New Note</string>
+    <string name="fragment_update_note">Update Note</string>
+    <string name="menu_delete_title">Delete</string>
 </resources>
