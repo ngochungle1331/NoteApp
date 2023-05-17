@@ -10,8 +10,13 @@ import com.example.notesapp.data.source.local.Note
 import com.example.notesapp.databinding.NoteItemBinding
 import com.example.notesapp.ui.home.HomeFragmentDirections
 
-class NoteAdapter(val context: Context, val noteList: List<Note>) :
+class NoteAdapter(val context: Context, var noteList: List<Note>) :
     RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
+
+    fun filterNote(filteredList: ArrayList<Note>) {
+        noteList = filteredList
+        notifyDataSetChanged()
+    }
     class NoteViewHolder(var binding: NoteItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
